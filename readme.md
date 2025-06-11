@@ -29,7 +29,9 @@ Fully functional keyboard-free UI
 
 
 
+![Screenshot (1020)](https://github.com/user-attachments/assets/b424634b-abd5-4177-be02-1b577e9e3682)
 
+![Screenshot (1019)](https://github.com/user-attachments/assets/e6762d67-e060-4c37-8105-8b9326d6fcdb)
 
 
 
