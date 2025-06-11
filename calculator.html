@@ -3,96 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Simple Weather App</title>
+  <title>Simple Calculator</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      background-color: #f4f4f4;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
     }
 
-    .weather-container {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      width: 300px;
+    .calculator {
+      background: rgb(234, 108, 108);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(10, 9, 9, 0.1);
     }
 
-    input {
+    #display {
+      width: 100%;
+      height: 80px;
+      font-size: 24px;
+      margin-bottom: 10px;
       padding: 10px;
-      width: 80%;
-      margin: 10px 0;
-      font-size: 16px;
+      text-align: right;
+      border: 1px solid #d2b1ca;
+      border-radius: 3px;
     }
 
-    button {
-      padding: 10px 20px;
-      background-color: #2193b0;
-      color: white;
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 60px);
+      gap: 10px;
+    }
+
+    .buttons button {
+      padding: 15px;
+      font-size: 18px;
+      cursor: pointer;
       border: none;
       border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
+      background-color: #e2f0e4;
+      transition: background-color 0.2s;
     }
 
-    .weather-display {
-      margin-top: 20px;
+    .buttons button:hover {
+      background-color: #d4d4d4;
     }
 
-    .weather-display img {
-      width: 100px;
-      height: 100px;
+    .buttons .equal {
+      background-color: #2876ea;
+      color: rgb(240, 233, 233);
     }
 
-    .weather-display p {
-      font-size: 18px;
-      margin-top: 10px;
+    .buttons .equal:hover {
+      background-color: #45a049;
+    }
+
+    .buttons .operator {
+      background-color: #2196f3;
+      color: white;
+    }
+
+    .buttons .operator:hover {
+      background-color: #1e88e5;
     }
   </style>
 </head>
 <body>
-  <div class="weather-container">
-    <h1>Weather App</h1>
-    <input type="text" id="weatherInput" placeholder="Enter weather (Sunny, Rainy, Cloudy)" />
-    <button onclick="showWeather()">Show Weather</button>
-    
-    <div class="weather-display">
-      <img id="weatherImage" src="default.png" alt="Weather Image"/>
-      <p id="weatherText">Enter a weather condition above</p>
-    </div>
+
+<div class="calculator">
+  <input type="text" id="display" disabled />
+  <div class="buttons">
+    <button onclick="clearDisplay()">C</button>
+    <button onclick="appendValue('/')">/</button>
+    <button onclick="appendValue('*')">*</button>
+    <button onclick="deleteLast()">DEL</button>
+
+    <button onclick="appendValue('7')">7</button>
+    <button onclick="appendValue('8')">8</button>
+    <button onclick="appendValue('9')">9</button>
+    <button class="operator" onclick="appendValue('-')">-</button>
+
+    <button onclick="appendValue('4')">4</button>
+    <button onclick="appendValue('5')">5</button>
+    <button onclick="appendValue('6')">6</button>
+    <button class="operator" onclick="appendValue('+')">+</button>
+
+    <button onclick="appendValue('1')">1</button>
+    <button onclick="appendValue('2')">2</button>
+    <button onclick="appendValue('3')">3</button>
+    <button onclick="calculate()" class="equal">=</button>
+
+    <button onclick="appendValue('0')">0</button>
+    <button onclick="appendValue('00')">00</button>
+    <button onclick="appendValue('.')">.</button>
   </div>
+</div>
 
-  <script>
-    function showWeather() {
-      const apikey='YOUR-API-KEY';
-      const input = document.getElementById('weatherInput').value.toLowerCase();
-      const weatherImage = document.getElementById('weatherImage');
-      const weatherText = document.getElementById('weatherText');
+<script>
+  function appendValue(value) {
+    document.getElementById('display').value += value;
+  }
 
-      if (input === "sunny") {
-        <img src = "sun.png" alt="sunny weather" width="200">;
-        weatherText.textContent = "It's a bright and sunny day!";
-        <img src="C:\Users\kumku\Downloads\images sun.png" alt="sunny weather" width="200">
-      } else if (input === "rainy") {
-        <img src = "rain.png" alt="rain weather" width="200">;
-        weatherText.textContent = "Don't forget your umbrella!";
-        <img src="C:\Users\kumku\Downloads\image rain.jpg" alt="rain weather" width="200">
-      } else if (input === "cloudy") {
-        <img src = "cloud.png" alt="cloud weather" width="200">;
-        weatherText.textContent = "It's a bit cloudy today.";
-        <img src="C:\Users\kumku\Downloads\image could.jpg" alt="cloud weather" width="200">
-      } else {
-        weatherImage.src = "default.png";
-        weatherText.textContent = "Please enter Sunny, Rainy, or Cloudy.";
-      }
+  function clearDisplay() {
+    document.getElementById('display').value = '';
+  }
+
+  function deleteLast() {
+    let display = document.getElementById('display');
+    display.value = display.value.slice(0, -1);
+  }
+
+  function calculate() {
+    try {
+      let result = eval(document.getElementById('display').value);
+      document.getElementById('display').value = result;
+    } catch (error) {
+      alert('Invalid Expression');
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
