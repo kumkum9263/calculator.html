@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Weather App</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .weather-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      width: 300px;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #2193b0;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .weather-display {
+      margin-top: 20px;
+    }
+
+    .weather-display img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .weather-display p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="weather-container">
+    <h1>Weather App</h1>
+    <input type="text" id="weatherInput" placeholder="Enter weather (Sunny, Rainy, Cloudy)" />
+    <button onclick="showWeather()">Show Weather</button>
+    
+    <div class="weather-display">
+      <img id="weatherImage" src="default.png" alt="Weather Image"/>
+      <p id="weatherText">Enter a weather condition above</p>
+    </div>
+  </div>
+
+  <script>
+    function showWeather() {
+      const apikey='YOUR-API-KEY';
+      const input = document.getElementById('weatherInput').value.toLowerCase();
+      const weatherImage = document.getElementById('weatherImage');
+      const weatherText = document.getElementById('weatherText');
+
+      if (input === "sunny") {
+        <img src = "sun.png" alt="sunny weather" width="200">;
+        weatherText.textContent = "It's a bright and sunny day!";
+        <img src="C:\Users\kumku\Downloads\images sun.png" alt="sunny weather" width="200">
+      } else if (input === "rainy") {
+        <img src = "rain.png" alt="rain weather" width="200">;
+        weatherText.textContent = "Don't forget your umbrella!";
+        <img src="C:\Users\kumku\Downloads\image rain.jpg" alt="rain weather" width="200">
+      } else if (input === "cloudy") {
+        <img src = "cloud.png" alt="cloud weather" width="200">;
+        weatherText.textContent = "It's a bit cloudy today.";
+        <img src="C:\Users\kumku\Downloads\image could.jpg" alt="cloud weather" width="200">
+      } else {
+        weatherImage.src = "default.png";
+        weatherText.textContent = "Please enter Sunny, Rainy, or Cloudy.";
+      }
+    }
+  </script>
+</body>
+</html>
