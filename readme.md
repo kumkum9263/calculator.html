@@ -1,4 +1,4 @@
-# 🌤️ Simple Weather App & 🧮 Enhanced Calculator App
+# 🌤️ Simple Weather App & 🧮 Simple Calculator App
 
 A collection of two beginner-friendly web applications built with HTML, CSS, and JavaScript:
 
@@ -6,7 +6,7 @@ A collection of two beginner-friendly web applications built with HTML, CSS, and
 2. **Simple Calculator App** – A sleek, functional calculator with a modern UI and basic arithmetic capabilities.
 
 ---
-## 🌤️ Simple Weather App
+## 🌤️ Live Weather App
 
 ### 🔹 Features
 
@@ -14,7 +14,7 @@ A collection of two beginner-friendly web applications built with HTML, CSS, and
 - Displays **temperature**, **weather description**, and **icon**
 - Responsive, minimal design
 
-🧮 Enhanced Calculator App
+🧮 Simple Calculator App
 🔹 Features
 Basic operations: +, -, *, /, . and DEL
 
@@ -49,7 +49,7 @@ OpenWeatherMap API (for Weather App)
 MIT License — feel free to use, modify, and distribute.
 
 👨‍💻 Author
-Developed by [Your Name]
+Developed by Kumkum Kumari.
 For questions, contributions, or issues, feel free to reach out or fork the project!
 
 ### 🔧 Optional Suggestions
